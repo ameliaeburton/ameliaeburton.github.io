@@ -70,17 +70,17 @@
 requestAnimationFrame(() => document.documentElement.classList.add('loaded'));
 
 /* ---------------------------------------------------------
-   2. Click or tap your name to make it flash
-   (it still flashes on its own every few seconds)
+   2. Click or tap your name to send a sweep of light across it
+   (it still glints on its own every few seconds)
    --------------------------------------------------------- */
 document.querySelectorAll('.hero h1').forEach(name => {
   name.addEventListener('click', () => {
-    name.classList.remove('flash');
+    name.classList.remove('sweep');
     void name.offsetWidth;            // restart the animation if clicked again quickly
-    name.classList.add('flash');
+    name.classList.add('sweep');
   });
   name.addEventListener('animationend', e => {
-    if (e.animationName === 'flash') name.classList.remove('flash');
+    if (e.animationName === 'sweep') name.classList.remove('sweep');
   });
 });
 

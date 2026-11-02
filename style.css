@@ -140,14 +140,10 @@ img, video { display: block; max-width: 100%; }
 .project.reveal.visible h3, .project:hover h3, .section-head h2, .footer h2:hover { animation: glint 2.4s ease-out 1; }
 @keyframes glint { 0% { background-position: 160% 0, 0 0; } 40%, 100% { background-position: -60% 0, 0 0; } }
 
-/* Tap or click your name: it flashes like light catching polished metal */
+/* Tap or click your name: a sweep of light runs across it, like the automatic glint */
 .hero h1 { cursor: pointer; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; }
-.hero h1.flash { animation: glint 1s cubic-bezier(.2,.7,.2,1) 1, flash 1s ease-out 1; }
-@keyframes flash {
-  0%   { filter: drop-shadow(0 1px 0 rgba(0,0,0,.55)) drop-shadow(0 10px 22px rgba(0,0,0,.55)); }
-  18%  { filter: brightness(1.6) drop-shadow(0 0 18px rgba(200, 235, 255, .95)) drop-shadow(0 0 48px rgba(143, 214, 255, .7)); }
-  100% { filter: drop-shadow(0 1px 0 rgba(0,0,0,.55)) drop-shadow(0 10px 22px rgba(0,0,0,.55)); }
-}
+.hero h1.sweep { animation: sweep 1.4s ease-in-out 1; }
+@keyframes sweep { from { background-position: 160% 0, 0 0; } to { background-position: -60% 0, 0 0; } }
 
 /* =========================================================
    Navigation (dark glass)
