@@ -1,1 +1,173 @@
-<h1>Hello, I'm Amelia</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amelia Burton — Mechanical Engineering Portfolio</title>
+  <meta name="description" content="Engineering portfolio of Amelia Burton: simulation, design and instrumentation projects.">
+
+  <!-- Fonts from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <nav class="nav">
+    <a href="#top" class="mark">A. Burton</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li class="hide-mobile"><a href="resume.pdf" target="_blank">Résumé</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== OPENING PAGE ===== -->
+  <header class="hero" id="top">
+    <p class="eyebrow">Mechanical Engineering &nbsp;·&nbsp; Portfolio</p>
+    <h1>Amelia<br><em>Burton</em></h1>
+    <p class="lede">
+      <!-- EDIT: one or two sentences about you -->
+      Mechanical engineering student interested in simulation, mechanical design
+      and instrumentation.
+    </p>
+
+    <a href="#work" class="scroll-cue">
+      <span class="stem"></span>
+      Scroll to view projects
+    </a>
+  </header>
+
+  <!-- ===== PROJECTS ===== -->
+  <main class="section" id="work">
+    <div class="section-head">
+      <h2>Selected Work</h2>
+      <span>03 Projects</span>
+    </div>
+
+    <!--
+      Each <article> below is one project.
+      To add a project: copy a whole <article> ... </article> block,
+      paste it underneath, and change the text, image and link.
+
+      To use a real picture, put it in the "images" folder and replace
+        <div class="placeholder">Image coming soon</div>
+      with
+        <img src="images/your-picture.jpg" alt="Short description of the picture">
+    -->
+
+    <!-- PROJECT 01 -->
+    <article class="project reveal">
+      <a href="projects/spring-fea.html" class="project-image">
+        <div class="placeholder">Image coming soon</div>
+      </a>
+      <div>
+        <p class="project-number">01 — Simulation</p>
+        <h3>Compression Spring Test Simulation</h3>
+        <p>
+          A finite element model in Abaqus that recreates a spring tester,
+          studying the forces and moments in a compression spring loaded
+          between non-parallel friction plates.
+        </p>
+        <ul class="tags">
+          <li>Abaqus</li><li>FEA</li><li>CAD</li>
+        </ul>
+        <a href="projects/spring-fea.html" class="button">View Project <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <!-- PROJECT 02 -->
+    <article class="project reveal">
+      <a href="projects/project-two.html" class="project-image">
+        <div class="placeholder">Image coming soon</div>
+      </a>
+      <div>
+        <p class="project-number">02 — Category</p>
+        <h3>Project Title Two</h3>
+        <p>
+          Two or three sentences describing the problem, what you did and
+          what came out of it. Keep it short. The full story goes on the project page.
+        </p>
+        <ul class="tags">
+          <li>Tool</li><li>Skill</li><li>Method</li>
+        </ul>
+        <a href="projects/project-two.html" class="button">View Project <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <!-- PROJECT 03 -->
+    <article class="project reveal">
+      <a href="projects/project-three.html" class="project-image">
+        <div class="placeholder">Image coming soon</div>
+      </a>
+      <div>
+        <p class="project-number">03 — Category</p>
+        <h3>Project Title Three</h3>
+        <p>
+          Two or three sentences describing the problem, what you did and
+          what came out of it.
+        </p>
+        <ul class="tags">
+          <li>Tool</li><li>Skill</li><li>Method</li>
+        </ul>
+        <a href="projects/project-three.html" class="button">View Project <span class="arrow">→</span></a>
+      </div>
+    </article>
+  </main>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="section-head">
+      <h2>About</h2>
+      <span>Background</span>
+    </div>
+    <div class="about-grid reveal">
+      <p class="big">
+        <!-- EDIT: a short, memorable line -->
+        I like problems where careful analysis meets real hardware.
+      </p>
+      <div>
+        <p>
+          <!-- EDIT: your school, major, year and interests -->
+          I'm a mechanical engineering student at [University], graduating [Year].
+          My coursework includes signal processing, instrumentation and control,
+          and finite element analysis.
+        </p>
+        <p>
+          I'm looking for [internship / co-op / full-time] roles in [field].
+          Outside of class, I [something about you].
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <h2>Let's talk — <a href="mailto:ameliaeburton2005@gmail.com">get in touch</a></h2>
+    <ul>
+      <li><a href="mailto:ameliaeburton2005@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a></li>
+      <li><a href="resume.pdf" target="_blank">Résumé</a></li>
+    </ul>
+    <p class="copyright">© 2026 Amelia Burton</p>
+  </footer>
+
+  <!-- Small script: fades projects in as you scroll -->
+  <script>
+    const items = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
