@@ -3,20 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#07080a">
+  <meta name="theme-color" content="#efe8da">
   <title>Rover — Amelia Burton</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&family=Michroma&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- "../" means "go up one folder", because this page is inside /projects -->
   <link rel="stylesheet" href="../style.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
+  <!-- Loading screen + scroll gauge (spirals are drawn by main.js) -->
+  <div class="loader" aria-hidden="true"><div data-spiral="loader"></div><p>Amelia Burton</p></div>
+  <button class="gauge" type="button" aria-label="Back to top" data-spiral="gauge"></button>
+
   <nav class="nav clear">
-    <a href="../index.html" class="mark">A. Burton</a>
+    <a href="../index.html" class="mark"><span data-spiral="logo"></span>A. Burton</a>
     <ul>
       <li><a href="../index.html#work">Work</a></li>
       <li><a href="../index.html#about">About</a></li>
