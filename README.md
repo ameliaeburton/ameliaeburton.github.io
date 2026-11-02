@@ -26,8 +26,9 @@ Copy one `<article class="project"> ... </article>` block in `index.html`, then 
 3. Copy the `<header class="video-hero">` block from `projects/rover.html` and change the `src`.
    Keep `autoplay muted loop playsinline`: iPhones only autoplay muted videos.
 
-## Theme: Spiral
-- Colors, fonts and the golden-ratio spacing scale are at the top of `style.css`.
-- Spirals are drawn by `goldenSpiral()` in `main.js`. Any element with `data-spiral="guide"` gets a spiral
-  (`logo` = no squares, `gauge` = scroll gauge, `loader` = loading screen).
-- The loading screen shows once per visit. To see it again, close the tab and reopen the site.
+## Theme: Deep Ocean
+- Colors, fonts and spacing are at the top of `style.css`.
+- Sun rays, caustic light and drifting particles are added by `main.js` (section "0. Ocean").
+  The caustic pattern is `images/caustics.png`.
+- Silver headings: any element with class `silver` gets the polished-silver text effect.
+- The depth gauge reading at the very bottom of the page is set by `MAX_DEPTH` in `main.js`.

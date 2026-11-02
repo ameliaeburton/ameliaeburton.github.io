@@ -1,110 +1,90 @@
 // Shared scripts for every page.
 
 /* ---------------------------------------------------------
-   0. Golden spiral generator
-   Builds a golden rectangle (1.618 : 1), cuts it into squares,
-   and draws a quarter-circle in each square. Together the arcs
-   form the golden spiral.
+   0. Ocean: sun rays, caustic light and drifting particles
    --------------------------------------------------------- */
-const PHI = (1 + Math.sqrt(5)) / 2;
-
-function goldenSpiral({ squares = true, turns = 10, track = false } = {}) {
-  const W = 1000 * PHI, H = 1000;
-  let x = 0, y = 0, w = W, h = H;
-  let d = '', rects = '';
-  for (let i = 0; i < turns; i++) {
-    const dir = i % 4;
-    let s, x0, y0, x1, y1;
-    if (dir === 0) {        // square on the left
-      s = h; rects += `<rect class="sq" x="${x}" y="${y}" width="${s}" height="${s}"/>`;
-      x0 = x; y0 = y + s; x1 = x + s; y1 = y;
-      x += s; w -= s;
-    } else if (dir === 1) { // square on top
-      s = w; rects += `<rect class="sq" x="${x}" y="${y}" width="${s}" height="${s}"/>`;
-      x0 = x; y0 = y; x1 = x + s; y1 = y + s;
-      y += s; h -= s;
-    } else if (dir === 2) { // square on the right
-      s = h; rects += `<rect class="sq" x="${x + w - s}" y="${y}" width="${s}" height="${s}"/>`;
-      x0 = x + w; y0 = y; x1 = x + w - s; y1 = y + s;
-      w -= s;
-    } else {                // square on the bottom
-      s = w; rects += `<rect class="sq" x="${x}" y="${y + h - s}" width="${s}" height="${s}"/>`;
-      x0 = x + w; y0 = y + h; x1 = x; y1 = y + h - s;
-      h -= s;
-    }
-    if (i === 0) d += `M${x0.toFixed(2)} ${y0.toFixed(2)}`;
-    d += ` A${s.toFixed(2)} ${s.toFixed(2)} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`;
-  }
-  const trackPath = track ? `<path class="track" d="${d}"/>` : '';
-  return `<svg viewBox="-2 -2 ${W + 4} ${H + 4}" aria-hidden="true">${squares ? rects : ''}${trackPath}<path class="arc" d="${d}" pathLength="1"/></svg>`;
-}
-
-// Fill every element marked data-spiral="..."
-document.querySelectorAll('[data-spiral]').forEach(el => {
-  const type = el.dataset.spiral;
-  el.classList.add('spiral');
-  el.innerHTML = goldenSpiral({
-    squares: type !== 'logo',
-    turns: type === 'logo' ? 8 : 10,
-    track: type === 'gauge'
-  });
-});
-
-// Small spiral used as a mask for the section-heading glyph
 (() => {
-  const svg = goldenSpiral({ squares: false, turns: 8 })
-    .replace('class="arc"', 'fill="none" stroke="black" stroke-width="70"');
-  document.documentElement.style.setProperty('--spiral-mask', `url("data:image/svg+xml,${encodeURIComponent(svg.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"'))}")`);
+  const ocean = document.createElement('div');
+  ocean.className = 'ocean';
+  ocean.setAttribute('aria-hidden', 'true');
+  ocean.innerHTML = '<div class="caustics"></div><div class="rays">' + '<i></i>'.repeat(6) + '</div>';
+  document.body.prepend(ocean);
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // marine snow: tiny specks drifting slowly upward and sideways
+  const c = document.createElement('canvas');
+  c.className = 'snow';
+  c.setAttribute('aria-hidden', 'true');
+  document.body.prepend(c);
+  const ctx = c.getContext('2d');
+  let W, H, dpr, specks = [];
+  const make = () => ({
+    x: Math.random() * W, y: Math.random() * H,
+    r: Math.random() * 1.4 + 0.3,
+    a: Math.random() * 0.45 + 0.08,
+    vy: -(Math.random() * 0.18 + 0.04),
+    vx: (Math.random() - 0.5) * 0.12,
+    ph: Math.random() * Math.PI * 2
+  });
+  const resize = () => {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    c.width = W * dpr; c.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.min(90, Math.round(W * H / 16000));
+    specks = Array.from({ length: count }, make);
+  };
+  resize();
+  addEventListener('resize', resize);
+
+  let last = 0, running = true;
+  const tick = t => {
+    if (!running) return;
+    const dt = Math.min(50, t - last) / 16.7; last = t;
+    ctx.clearRect(0, 0, W, H);
+    for (const p of specks) {
+      p.ph += 0.01 * dt;
+      p.x += (p.vx + Math.sin(p.ph) * 0.08) * dt;
+      p.y += p.vy * dt;
+      if (p.y < -5) { p.y = H + 5; p.x = Math.random() * W; }
+      if (p.x < -5) p.x = W + 5; else if (p.x > W + 5) p.x = -5;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200, 235, 255, ${p.a})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+  // pause when the tab is hidden to save battery
+  document.addEventListener('visibilitychange', () => {
+    running = !document.hidden;
+    if (running) { last = performance.now(); requestAnimationFrame(tick); }
+  });
 })();
 
-// Spiral that draws over project images on hover
-document.querySelectorAll('.project-image').forEach(img => {
-  const s = document.createElement('div');
-  s.className = 'spiral';
-  s.innerHTML = goldenSpiral({ turns: 9 });
-  img.appendChild(s);
-});
-
 /* ---------------------------------------------------------
-   1. Loading screen: the spiral draws itself, then fades out.
-   Shown once per visit (not on every page change).
+   1. Opening animation: the name and intro rise in on load
    --------------------------------------------------------- */
-const root = document.documentElement;
-const loader = document.querySelector('.loader');
-let seen = false;
-try { seen = sessionStorage.getItem('spiralSeen') === '1'; } catch (e) {}
-
-if (!loader || seen) {
-  root.classList.add('skip-loader');
-} else {
-  loader.querySelector('.spiral')?.classList.add('draw');
-  const start = performance.now();
-  const finish = () => {
-    const wait = Math.max(0, 1900 - (performance.now() - start));  // let the spiral finish drawing
-    setTimeout(() => {
-      root.classList.add('loaded');
-      try { sessionStorage.setItem('spiralSeen', '1'); } catch (e) {}
-    }, wait);
-  };
-  if (document.readyState === 'complete') finish(); else window.addEventListener('load', finish);
-  setTimeout(() => root.classList.add('loaded'), 3500);  // never wait longer than this
-}
-
-// The big layout spiral behind the name draws in after the loader
-document.querySelectorAll('.hero-guide').forEach(g => {
-  setTimeout(() => g.classList.add('draw'), seen ? 100 : 1500);
-});
+requestAnimationFrame(() => document.documentElement.classList.add('loaded'));
 
 /* ---------------------------------------------------------
-   2. Scroll gauge: small spiral bottom-right fills as you scroll.
-   Tap it to go back to the top.
+   2. Depth gauge: bar bottom-right fills as you scroll
+   and shows a depth reading. Tap it to go back to the top.
    --------------------------------------------------------- */
 const gauge = document.querySelector('.gauge');
 if (gauge) {
+  gauge.innerHTML = '<span class="bar"></span>';
+  const readout = document.createElement('span');
+  readout.className = 'depth';
+  gauge.appendChild(readout);
+  const MAX_DEPTH = 300;   // metres shown at the very bottom of the page
   const update = () => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-    gauge.style.setProperty('--progress', (1 - p).toFixed(4));
+    gauge.style.setProperty('--p', p.toFixed(4));
+    readout.textContent = '−' + Math.round(p * MAX_DEPTH) + ' m';
     gauge.classList.toggle('show', window.scrollY > window.innerHeight * 0.5);
   };
   update();
