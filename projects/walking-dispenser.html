@@ -50,26 +50,25 @@
     <a href="../index.html#work" class="back">← All projects</a>
 
     <p class="lead">
-      BookDrop is a walking robot that carries a tray of books through a library and drops
-      each one off at its aisle, so librarians spend less time sorting returns. Two four-bar
-      legs walk it forward, and a Geneva wheel driving a Scotch yoke pushes out one book
-      every 2 meters.
+      A walking robot built to dispense one object every 2 meters as it travels. Two four-bar
+      legs walk it forward, and a Geneva wheel driving a Scotch yoke pushes out each object
+      on a timed interval.
     </p>
 
     <dl class="facts">
       <div><dt>Course</dt><dd>ME 370 · Mechanical Design I</dd></div>
       <div><dt>Date</dt><dd>Fall 2025</dd></div>
       <div><dt>Team</dt><dd>4 students</dd></div>
-      <div><dt>My role</dt><dd>CAD design &amp; dispensing mechanism</dd></div>
+      <div><dt>My role</dt><dd>Lead CAD designer</dd></div>
       <div><dt>Result</dt><dd>98% dispensing accuracy</dd></div>
     </dl>
 
-    <h2>The Problem</h2>
+    <h2>The Goal</h2>
     <p>
-      Library staff at Grainger juggle the front desk and student questions while also sorting
-      returned books by aisle. We designed a robot for them: a book drop that carries the
-      physical load and delivers each book to the right aisle on its own. Our design theme was
-      colorful, friendly and creative, so it would feel at home in a busy library.
+      Design and build a robot that walks on legs rather than wheels and dispenses one object
+      every 2 meters of travel, reliably and on its own. I designed the complete CAD model for the
+      Geneva-wheel and Scotch-yoke mechanism, and the team fabricated it using 3D printing and
+      laser cutting.
     </p>
 
     <h2>How It Works</h2>
@@ -90,8 +89,8 @@
         <h3>Dispensing</h3>
         <ul>
           <li>A <b>Geneva wheel</b> turns continuous motor rotation into timed, intermittent steps</li>
-          <li>Each step drives a <b>Scotch yoke</b>, which slides a pusher to eject one book</li>
-          <li>Timed to drop one book every <b>2 meters</b> of travel</li>
+          <li>Each step drives a <b>Scotch yoke</b>, which slides a pusher to eject one object</li>
+          <li>Timed to drop one object every <b>2 meters</b> of travel</li>
         </ul>
       </div>
     </div>
@@ -122,7 +121,6 @@
       <div><dt>Motor speed (9 V, loaded)</dt><dd>4 rad/s</dd></div>
       <div><dt>Gear ratio</dt><dd>5.2 : 1</dd></div>
       <div><dt>Predicted speed</dt><dd>1.73 m/min</dd></div>
-      <div><dt>β</dt><dd>0.28</dd></div>
     </dl>
 
     <h2>Build</h2>
@@ -143,16 +141,15 @@
       <video autoplay muted loop playsinline preload="metadata" poster="../images/dispenser/dispensing-poster.jpg">
         <source src="../media/dispenser-dispensing.mp4" type="video/mp4">
       </video>
-      <figcaption class="caption">BookDrop walking and dropping off a block.</figcaption>
+      <figcaption class="caption">The robot walking and dispensing an object.</figcaption>
     </figure>
     <p>
       We refined the mechanism through repeated testing until it dispensed reliably, reaching
       98% dispensing accuracy.
-      <!-- EDIT: add measured walking speed vs. the 1.73 m/min prediction, or what you changed after testing -->
     </p>
 
     <p class="thanks">
-      Team: Nicole Canfield, Danny Shannon, Amelia Burton and Shay Khanchandani.
+      Team of 4. I was the lead CAD designer and designed the complete CAD model of the mechanism.
     </p>
 
     <div class="next-project">
