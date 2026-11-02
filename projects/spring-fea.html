@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0a3550">
-  <title>Spring Design Study for Aircraft Fuel Controls — Amelia Burton</title>
+  <title>Reducing Lateral Forces in Helical Compression Springs — Amelia Burton</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,51 +30,171 @@
   <main class="project-page">
     <a href="../index.html#work" class="back">← All projects</a>
 
-    <p class="eyebrow">Project 02 — Simulation</p>
-    <h1>Spring Design Study for Aircraft Fuel Controls</h1>
+    <p class="eyebrow">Project 02 — Simulation &amp; Testing</p>
+    <h1>Reducing Lateral Forces in Helical Compression Springs</h1>
 
     <p class="lead">
-      For my senior design project with Woodward, I'm studying how helical compression springs
-      in aircraft fuel-control systems push sideways and tip under load. The goal is spring
-      designs that reduce lateral loading and improve valve performance.
+      Springs in Woodward's aircraft fuel-metering systems don't push perfectly straight. Our
+      senior design team is finding out why, and how to design springs that push straighter,
+      by combining physical testing, nonlinear Abaqus FEA and a parametric CAD design of experiments.
     </p>
 
     <dl class="facts">
       <div><dt>Sponsor</dt><dd>Woodward Inc.</dd></div>
-      <div><dt>Type</dt><dd>Senior design project</dd></div>
+      <div><dt>Course</dt><dd>ME 470 · Senior Design</dd></div>
+      <div><dt>Team</dt><dd>4 students</dd></div>
       <div><dt>Date</dt><dd>Aug 2026 – Present</dd></div>
-      <div><dt>Tools</dt><dd>Abaqus FEA, parametric CAD, DOE</dd></div>
+      <div><dt>Tools</dt><dd>Abaqus, parametric CAD, DOE, physical testing</dd></div>
     </dl>
 
-    <!-- Check with Woodward before adding images or results: sponsored projects often have sharing limits. -->
     <figure class="figure">
-      <div class="frame">
-        <!-- Replace with: <img src="../images/your-picture.jpg" alt="Description"> -->
-        <div class="placeholder">Image coming soon</div>
-      </div>
-      <figcaption>Spring model in Abaqus.</figcaption>
+      <div class="frame"><img src="../images/woodward/mesh.jpg" alt="Abaqus finite element mesh of a helical compression spring"></div>
+      <figcaption>Baseline Abaqus model: 30,542 C3D10M elements.</figcaption>
     </figure>
 
     <h2>The Problem</h2>
+    <div class="split">
+      <div>
+        <p>
+          When the spring compresses, it also produces a sideways force (F<sub>q</sub>) and an
+          overturning moment (M<sub>q</sub>). These push the spring against the valve walls,
+          creating friction that lowers system efficiency and hurts valve performance.
+        </p>
+        <p>
+          Our earlier research pointed to spring geometry and end conditions as the main
+          influences, so we focused on three variables: the number of active coils, free length
+          and seat tilt.
+        </p>
+      </div>
+      <div style="display: flex; gap: var(--s1)">
+        <figure class="figure" style="margin:0; flex: 1">
+          <div class="frame contain white" style="aspect-ratio: 2 / 3"><img src="../images/woodward/valve.jpg" alt="Cross-section of a valve showing the compressed spring, piston, lateral load and friction"></div>
+        </figure>
+        <figure class="figure" style="margin:0; flex: 1">
+          <div class="frame contain white" style="aspect-ratio: 2 / 3"><img src="../images/woodward/forces.jpg" alt="Force diagram showing the lateral force Fq resolved from Fx and Fy"></div>
+        </figure>
+      </div>
+    </div>
+
+    <h2>Physical Testing</h2>
     <p>
-      A compression spring doesn't push perfectly straight. Under load, it also produces
-      lateral forces and overturning moments, which can affect how the valves in a fuel-control
-      system perform.
+      We set up the test protocol to match the spring's real working conditions, on an EasyDur
+      universal tension and compression testing machine.
+    </p>
+    <dl class="facts">
+      <div><dt>Load range</dt><dd>85 – 120.9 lbf (378 – 538 N)</dd></div>
+      <div><dt>Compression</dt><dd>0 – 8.312 mm</dd></div>
+      <div><dt>Tests</dt><dd>20: 10 springs × 2 positions</dd></div>
+      <div><dt>Positions</dt><dd>0° and 90° (spring rotated)</dd></div>
+    </dl>
+    <div class="split">
+      <figure class="figure" style="margin:0">
+        <div class="frame contain white"><img src="../images/woodward/positions.jpg" alt="Renders of the spring in test position 1 and position 2"></div>
+        <figcaption>The same spring tested in two orientations, rotated 90° about its axis.</figcaption>
+      </figure>
+      <figure class="figure" style="margin:0">
+        <div class="frame contain white"><img src="../images/woodward/chart-experiment.jpg" alt="Lateral resultant force versus compression for the 0 and 90 degree orientations"></div>
+        <figcaption>Measured lateral force across the operating range, 0° vs. 90°.</figcaption>
+      </figure>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>What we measured</h3>
+        <ul>
+          <li>Lateral load rose by <b>+3.2 N</b> at 0° but <b>+12.1 N</b> at 90° across the operating range</li>
+          <li>Average standard deviation: <b>2.2 N</b> at 0° and <b>4.2 N</b> at 90°</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What surprised us</h3>
+        <ul>
+          <li>Rotating the spring 90° should rotate the force by 90°, but it stayed at about <b>20°</b> in both positions</li>
+          <li>That points to a contribution from the test machine or seating that stays fixed while the spring's own force rotates</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Finite Element Model</h2>
+    <figure class="figure">
+      <div class="frame"><img src="../images/woodward/stress.jpg" alt="Abaqus von Mises stress contour of the compressed spring between two plates"></div>
+      <figcaption>Von Mises stress in the fixed-fixed baseline model.</figcaption>
+    </figure>
+    <p>
+      We built a nonlinear Abaqus model using the sponsor's material properties and two
+      compression steps. It matched the axial behavior closely but not the sideways behavior.
+    </p>
+    <dl class="facts">
+      <div><dt>Axial stiffness</dt><dd>19.02 N/mm, ≈1% from nominal</dd></div>
+      <div><dt>Axial force</dt><dd>Within ≈4.2% of test data</dd></div>
+      <div><dt>Lateral trend</dt><dd>−8.6 N in FEA vs. +3.2 / +12.1 N measured</dd></div>
+    </dl>
+    <p>
+      To close the gap, we tested seven contact and boundary-condition setups. Simplified end
+      constraints, like free end tilt and prescribed end rotation, solved successfully. More
+      realistic seat-contact setups (frictionless, finite-friction and rough contact) didn't
+      converge.
+    </p>
+    <div class="split">
+      <figure class="figure" style="margin:0">
+        <div class="frame contain white"><img src="../images/woodward/chart-fixed-tilted.jpg" alt="Lateral resultant force for the fixed-tilted model compared with experiments and the baseline"></div>
+        <figcaption>Tilting one end of the model brought the lateral force much closer to the tests.</figcaption>
+      </figure>
+      <figure class="figure" style="margin:0">
+        <div class="frame contain white"><img src="../images/woodward/chart-calibrated.jpg" alt="Calibrated FEA models overlaid on the 0 and 90 degree experimental lateral force curves"></div>
+        <figcaption>Calibrated models overlaid on both test orientations.</figcaption>
+      </figure>
+    </div>
+    <p>
+      Applying a gradually increasing tilt at the spring seat let us calibrate the model to the
+      tests within <b>0.54 N</b> RMSE at 0° and <b>0.57 N</b> at 90°. The catch: the model
+      calibrated at 0° doesn't predict the 90° result. That tells us the calibration captures the
+      test setup rather than the spring alone, so the model isn't predictive yet.
     </p>
 
-    <h2>Approach</h2>
+    <h2>Parametric CAD &amp; Design of Experiments</h2>
+    <div class="split">
+      <figure class="figure" style="margin:0">
+        <div class="frame contain white"><img src="../images/woodward/cad-baseline.jpg" alt="Baseline spring CAD model with 7.60 active coils and no seat tilt"></div>
+        <figcaption>Baseline: 7.60 active coils, 0° seat tilt.</figcaption>
+      </figure>
+      <figure class="figure" style="margin:0">
+        <div class="frame contain white"><img src="../images/woodward/cad-tilted.jpg" alt="Spring CAD variant with 7.75 active coils, 1 degree seat tilt and shorter free length"></div>
+        <figcaption>Variant: 7.75 active coils, 1° seat tilt, 0.9× free length.</figcaption>
+      </figure>
+    </div>
+    <p>
+      A parametric CAD workflow generates each spring variant and exports it automatically as a
+      .stp file for simulation. The design of experiments varies:
+    </p>
     <ul class="points">
-      <li>Built parametric CAD models of helical compression springs so geometry could be varied quickly</li>
-      <li>Modeled a spring-tester setup in Abaqus, including non-parallel end plates, to capture lateral forces and moments</li>
-      <li>Used design of experiments to find which design parameters have the biggest effect</li>
-      <li>Compared spring geometries across the simulation results</li>
+      <li>Active coils: 7.00, 7.25, 7.50 and 7.75</li>
+      <li>Free length: ±5% and ±10% from baseline</li>
+      <li>Seat tilt: 1° and 2°</li>
+      <li>Next to add: helix angle, and circular vs. elliptical wire cross-sections</li>
     </ul>
 
-    <h2>Results</h2>
-    <p>
-      The analysis identified spring designs that reduced lateral loading and improved valve
-      performance.
-      <!-- EDIT: add any results you're allowed to share -->
+    <h2>Where It Stands</h2>
+    <div class="process">
+      <div class="step">
+        <span class="n">EXPERIMENTAL</span>
+        <h3>Lateral force</h3>
+        <p>Rotating the spring changes how large the lateral force is, but its direction stays about the same.</p>
+      </div>
+      <div class="step">
+        <span class="n">FEA MODELING</span>
+        <h3>Calibration</h3>
+        <p>Prescribed rotations match the measured forces closely, but the models don't yet predict across orientations.</p>
+      </div>
+      <div class="step">
+        <span class="n">NEXT</span>
+        <h3>Next steps</h3>
+        <p>Resolve the seating and test-machine effects, establish consistent model correlation, then screen spring geometries.</p>
+      </div>
+    </div>
+
+    <p class="thanks">
+      Team: Amelia Burton, Luke Ju, Ryan Palumbo and Bryan Pigden. Sponsored by Woodward Inc.
+      Project in progress; results from the October 2026 mid-semester review.
     </p>
 
     <div class="next-project">
