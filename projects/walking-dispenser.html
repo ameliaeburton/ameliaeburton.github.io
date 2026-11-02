@@ -16,14 +16,12 @@
 </head>
 <body>
 
-  <!-- Depth gauge (bottom-right) -->
-  <button class="gauge" type="button" aria-label="Back to top"></button>
 
   <nav class="nav clear">
     <a href="../index.html" class="mark">A. Burton</a>
     <ul>
       <li><a href="../index.html#work">Work</a></li>
-      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../about.html">About</a></li>
       <li class="hide-mobile"><a href="../resume.pdf" target="_blank">Résumé</a></li>
       <li><a href="../index.html#contact">Contact</a></li>
     </ul>
@@ -37,7 +35,7 @@
     </video>
     <div class="overlay">
       <div>
-        <p class="eyebrow">Project 03 — Mechanisms</p>
+        <p class="eyebrow">Project 04 — Mechanisms</p>
         <h1 class="chrome">Walking Dispenser</h1>
       </div>
       <div class="controls">
@@ -128,20 +126,25 @@
     </dl>
 
     <h2>Build</h2>
-    <ul class="points">
-      <li>Laser-cut acrylic housing, so the mechanism stays visible</li>
-      <li>3D-printed legs, crank, gears, Geneva wheel and pusher</li>
-      <li>Eight batteries for about 9 V to the drive motor</li>
-    </ul>
-
-    <figure class="clip">
-      <video controls muted loop playsinline preload="metadata" poster="../images/dispenser/video-poster.jpg">
-        <source src="../media/dispenser-walking.mp4" type="video/mp4">
-      </video>
-      <figcaption class="caption">BookDrop walking during testing.</figcaption>
-    </figure>
+    <div class="split">
+      <figure class="figure" style="margin:0">
+        <div class="frame" style="aspect-ratio: 4 / 5"><img src="../images/dispenser/mechanism.jpg" alt="Close-up of the robot showing the white legs, battery pack, gears and clear acrylic housing"></div>
+        <figcaption>Legs, battery pack and gears inside the clear housing.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>Laser-cut acrylic housing, so the mechanism stays visible</li>
+        <li>3D-printed legs, crank, gears, Geneva wheel and pusher</li>
+        <li>Eight batteries for about 9 V to the drive motor</li>
+      </ul>
+    </div>
 
     <h2>Results</h2>
+    <figure class="clip">
+      <video autoplay muted loop playsinline preload="metadata" poster="../images/dispenser/dispensing-poster.jpg">
+        <source src="../media/dispenser-dispensing.mp4" type="video/mp4">
+      </video>
+      <figcaption class="caption">BookDrop walking and dropping off a block.</figcaption>
+    </figure>
     <p>
       We refined the mechanism through repeated testing until it dispensed reliably, reaching
       98% dispensing accuracy.
@@ -154,7 +157,7 @@
 
     <div class="next-project">
       <a href="../index.html#work" class="back">← All projects</a>
-      <a href="spring-fea.html" class="button">Next Project <span class="arrow">→</span></a>
+      <a href="rover.html" class="button">Next Project <span class="arrow">→</span></a>
     </div>
   </main>
 

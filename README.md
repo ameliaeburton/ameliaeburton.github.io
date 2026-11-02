@@ -5,7 +5,8 @@ Live site: https://ameliaeburton.github.io
 ## Files
 - `index.html`: the main page (opening screen, project overviews, about, contact)
 - `style.css`: all colors, fonts and layout
-- `projects/`: one page per project (`camera-mount.html`, `rover.html`, `walking-dispenser.html`, `spring-fea.html`)
+- `about.html`: the "More About Me" page
+- `projects/`: one page per project (`camera-mount.html`, `spring-fea.html`, `transmission.html`, `walking-dispenser.html`, `rover.html`)
 - `media/`: project videos (MP4, H.264, which plays on iPhone and in every browser)
 - `main.js`: shared scripts (scroll fade-in, video buttons, tabs, parts diagram)
 - `images/`: put your project pictures here
@@ -31,4 +32,4 @@ Copy one `<article class="project"> ... </article>` block in `index.html`, then 
 - Sun rays, caustic light and drifting particles are added by `main.js` (section "0. Ocean").
   The caustic pattern is `images/caustics.png`.
 - Silver headings: any element with class `silver` gets the polished-silver text effect.
-- The depth gauge reading at the very bottom of the page is set by `MAX_DEPTH` in `main.js`.
+- Clicking your name on the homepage makes it flash (section "2" in `main.js`).

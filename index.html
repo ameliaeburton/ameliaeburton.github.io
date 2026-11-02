@@ -17,15 +17,13 @@
 </head>
 <body>
 
-  <!-- Depth gauge (bottom-right) -->
-  <button class="gauge" type="button" aria-label="Back to top"></button>
 
   <!-- ===== NAVIGATION BAR ===== -->
   <nav class="nav">
     <a href="#top" class="mark">A. Burton</a>
     <ul>
       <li><a href="#work">Work</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="about.html">About</a></li>
       <li class="hide-mobile"><a href="resume.pdf" target="_blank">Résumé</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -37,9 +35,9 @@
       <p class="eyebrow">Mechanical Engineering &nbsp;·&nbsp; Portfolio</p>
       <h1 class="chrome">Amelia<br>Burton</h1>
       <p class="lede">
-        <!-- EDIT: one or two sentences about you -->
-        Mechanical engineering student at the University of Illinois Urbana-Champaign.
-        I design, simulate and build hardware, from CAD to the machine shop.
+        Senior in mechanical engineering at the University of Illinois Urbana-Champaign,
+        graduating May 2027. From CAD to the machine shop, I bring a hands-on approach
+        to every engineering problem.
       </p>
     </header>
     <a href="#work" class="scroll-cue">
@@ -52,7 +50,7 @@
   <main class="section" id="work">
     <div class="section-head">
       <h2>Selected Work</h2>
-      <span>04 Projects</span>
+      <span>05 Projects</span>
     </div>
 
     <!--
@@ -72,13 +70,13 @@
         <img src="images/camera-mount/fit-check.jpg" alt="Machined camera mount base plate and electronics panels" loading="lazy">
       </a>
       <div>
-        <p class="project-number">01 — Design &amp; Fabrication</p>
+        <p class="project-number">01 — Design &amp; Fabrication · Summer 2024</p>
         <h3>Science Camera Mount for the Nickel Telescope</h3>
         <p>
           At Lick Observatory, I designed in SolidWorks and machined by hand the mount that holds a new cryogenic CCD camera and its shutter on a 1-meter research telescope.
         </p>
         <ul class="tags">
-          <li>SolidWorks</li><li>Machining</li><li>Sheet Metal</li><li>Akamai 2024</li>
+          <li>SolidWorks</li><li>Machining</li><li>GD&amp;T</li><li>Sheet Metal</li>
         </ul>
         <a href="projects/camera-mount.html" class="button">View Project <span class="arrow">→</span></a>
       </div>
@@ -86,31 +84,49 @@
 
     <!-- PROJECT 02 -->
     <article class="project reveal">
-      <a href="projects/rover.html" class="project-image">
-        <span class="badge">Video</span>
-        <img src="images/rover/rover-photo.jpg" alt="3D-printed rover with black body and blue wheels on a running track" loading="lazy">
+      <a href="projects/spring-fea.html" class="project-image">
+        <div class="placeholder">Image coming soon</div>
       </a>
       <div>
-        <p class="project-number">02 — Mechatronics</p>
-        <h3>Rover</h3>
+        <p class="project-number">02 — Simulation · 2026 – Present</p>
+        <h3>Spring Design Study for Aircraft Fuel Controls</h3>
         <p>
-          <!-- EDIT -->A small rover with a 3D-printed body, custom wheels and a bevel-gear drive module, designed in CAD and built and tested outdoors.
+          Senior design project with Woodward: parametric CAD and Abaqus FEA to find helical compression spring designs that reduce lateral loading in fuel-control valves.
         </p>
         <ul class="tags">
-          <li>CAD</li><li>3D Printing</li><li>Gears</li>
+          <li>Abaqus</li><li>FEA</li><li>Design of Experiments</li>
         </ul>
-        <a href="projects/rover.html" class="button">View Project <span class="arrow">→</span></a>
+        <a href="projects/spring-fea.html" class="button">View Project <span class="arrow">→</span></a>
       </div>
     </article>
 
     <!-- PROJECT 03 -->
     <article class="project reveal">
-      <a href="projects/walking-dispenser.html" class="project-image">
+      <a href="projects/transmission.html" class="project-image">
         <span class="badge">Video</span>
-        <img src="images/dispenser/closeup.jpg" alt="Walking dispenser robot with clear frame and green 3D-printed parts" loading="lazy">
+        <img src="images/transmission/chassis.jpg" alt="Rover chassis with orange and yellow 3D-printed transmission gears" loading="lazy">
       </a>
       <div>
-        <p class="project-number">03 — Mechanisms</p>
+        <p class="project-number">03 — Drivetrain Design · 2026</p>
+        <h3>Four-Speed Rover Transmission</h3>
+        <p>
+          A four-speed transmission I designed and built for a small rover. It hit 2 m/s, pulled a 3 kg load up a ramp and survived a 5 kg drop test.
+        </p>
+        <ul class="tags">
+          <li>CAD</li><li>Gear Design</li><li>Testing</li>
+        </ul>
+        <a href="projects/transmission.html" class="button">View Project <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <!-- PROJECT 04 -->
+    <article class="project reveal">
+      <a href="projects/walking-dispenser.html" class="project-image">
+        <span class="badge">Video</span>
+        <img src="images/dispenser/loop-poster.jpg" alt="Walking dispenser robot with clear frame and green 3D-printed parts" loading="lazy">
+      </a>
+      <div>
+        <p class="project-number">04 — Mechanisms · 2025</p>
         <h3>Walking Dispenser</h3>
         <p>
           A walking robot that delivers library books to their aisles, with four-bar legs and a Geneva-wheel, Scotch-yoke dispenser that ejects one book every 2 meters.
@@ -122,21 +138,22 @@
       </div>
     </article>
 
-    <!-- PROJECT 04 -->
+    <!-- PROJECT 05 -->
     <article class="project reveal">
-      <a href="projects/spring-fea.html" class="project-image">
-        <div class="placeholder">Image coming soon</div>
+      <a href="projects/rover.html" class="project-image">
+        <span class="badge">Video</span>
+        <img src="images/rover/rover-photo.jpg" alt="3D-printed rover with black body and blue wheels on a running track" loading="lazy">
       </a>
       <div>
-        <p class="project-number">04 — Simulation</p>
-        <h3>Compression Spring Test Simulation</h3>
+        <p class="project-number">05 — Mechatronics · 2023</p>
+        <h3>3D-Printed Differential Rover</h3>
         <p>
-          A finite element model in Abaqus that recreates a spring tester, studying the forces and moments in a compression spring loaded between non-parallel friction plates.
+          A small rover built around a 3D-printed differential, designed in CAD and tested outdoors.
         </p>
         <ul class="tags">
-          <li>Abaqus</li><li>FEA</li><li>CAD</li>
+          <li>CAD</li><li>3D Printing</li><li>Differential</li>
         </ul>
-        <a href="projects/spring-fea.html" class="button">View Project <span class="arrow">→</span></a>
+        <a href="projects/rover.html" class="button">View Project <span class="arrow">→</span></a>
       </div>
     </article>
 
@@ -150,19 +167,21 @@
     </div>
     <div class="about-grid reveal">
       <p class="big">
-        <!-- EDIT: a short, memorable line -->
-        I like problems where careful analysis meets real hardware.
+        I design with the build in mind, and I build what I design.
       </p>
       <div>
         <p>
-          <!-- EDIT: your school, major, year and interests -->
-          I'm a mechanical engineering student at the University of Illinois Urbana-Champaign, graduating [Year].
-          My coursework includes signal processing, instrumentation and control,
-          and finite element analysis.
+          I'm a mechanical engineering senior at the University of Illinois Urbana-Champaign,
+          graduating May 2027. I've designed and machined hardware for a research telescope,
+          analyzed springs for aircraft fuel controls, and built rovers and mechanisms from
+          CAD to finished part.
         </p>
         <p>
-          I'm looking for [internship / co-op / full-time] roles in [field].
-          Outside of class, I [something about you].
+          Outside engineering, I love wildlife and nature, whether that's scuba diving,
+          shelling along the shore or traveling somewhere new.
+        </p>
+        <p style="margin-top: var(--s2)">
+          <a href="about.html" class="button">More About Me <span class="arrow">→</span></a>
         </p>
       </div>
     </div>

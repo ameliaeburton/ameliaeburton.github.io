@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0a3550">
-  <title>Compression Spring Test Simulation — Amelia Burton</title>
+  <title>Spring Design Study for Aircraft Fuel Controls — Amelia Burton</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,14 +16,12 @@
 </head>
 <body>
 
-  <!-- Depth gauge (bottom-right) -->
-  <button class="gauge" type="button" aria-label="Back to top"></button>
 
   <nav class="nav">
     <a href="../index.html" class="mark">A. Burton</a>
     <ul>
       <li><a href="../index.html#work">Work</a></li>
-      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../about.html">About</a></li>
       <li class="hide-mobile"><a href="../resume.pdf" target="_blank">Résumé</a></li>
       <li><a href="../index.html#contact">Contact</a></li>
     </ul>
@@ -32,73 +30,56 @@
   <main class="project-page">
     <a href="../index.html#work" class="back">← All projects</a>
 
-    <p class="eyebrow">Project 04 — Simulation</p>
-    <h1>Compression Spring Test Simulation</h1>
+    <p class="eyebrow">Project 02 — Simulation</p>
+    <h1>Spring Design Study for Aircraft Fuel Controls</h1>
 
-    <p>
-      <!-- EDIT: a one-paragraph summary -->
-      A finite element model in Abaqus that recreates a physical spring tester.
-      The model compresses a helical spring between two friction plates that are
-      not perfectly parallel and examines the resulting forces and moments.
+    <p class="lead">
+      For my senior design project with Woodward, I'm studying how helical compression springs
+      in aircraft fuel-control systems push sideways and tip under load. The goal is spring
+      designs that reduce lateral loading and improve valve performance.
     </p>
 
-    <!-- Quick facts strip: edit or delete rows -->
     <dl class="facts">
-      <div><dt>Type</dt><dd>Course / research project</dd></div>
-      <div><dt>Tools</dt><dd>Abaqus, CAD</dd></div>
-      <div><dt>Date</dt><dd>Fall 2026</dd></div>
-      <div><dt>Role</dt><dd>Modeling &amp; analysis</dd></div>
+      <div><dt>Sponsor</dt><dd>Woodward Inc.</dd></div>
+      <div><dt>Type</dt><dd>Senior design project</dd></div>
+      <div><dt>Date</dt><dd>Aug 2026 – Present</dd></div>
+      <div><dt>Tools</dt><dd>Abaqus FEA, parametric CAD, DOE</dd></div>
     </dl>
 
+    <!-- Check with Woodward before adding images or results: sponsored projects often have sharing limits. -->
     <figure class="figure">
       <div class="frame">
-        <!-- Replace with: <img src="../images/spring-model.jpg" alt="Spring model in Abaqus"> -->
-        <div class="placeholder">Main image: model or mesh</div>
+        <!-- Replace with: <img src="../images/your-picture.jpg" alt="Description"> -->
+        <div class="placeholder">Image coming soon</div>
       </div>
-      <figcaption>Fig. 1 — Spring and plate assembly in Abaqus.</figcaption>
+      <figcaption>Spring model in Abaqus.</figcaption>
     </figure>
 
     <h2>The Problem</h2>
     <p>
-      <!-- EDIT: why does this matter? what question were you answering? -->
-      Describe why the plate alignment matters and what you set out to learn.
+      A compression spring doesn't push perfectly straight. Under load, it also produces
+      lateral forces and overturning moments, which can affect how the valves in a fuel-control
+      system perform.
     </p>
 
     <h2>Approach</h2>
-    <p>
-      <!-- EDIT: how you built the model -->
-      Explain how you set up the model:
-    </p>
     <ul class="points">
-      <li>Geometry: how the spring was modeled</li>
-      <li>Materials and mesh</li>
-      <li>Contact and friction between the spring and plates</li>
-      <li>Boundary conditions and loading</li>
+      <li>Built parametric CAD models of helical compression springs so geometry could be varied quickly</li>
+      <li>Modeled a spring-tester setup in Abaqus, including non-parallel end plates, to capture lateral forces and moments</li>
+      <li>Used design of experiments to find which design parameters have the biggest effect</li>
+      <li>Compared spring geometries across the simulation results</li>
     </ul>
-
-    <figure class="figure">
-      <div class="frame">
-        <div class="placeholder">Results image: stress contour or plot</div>
-      </div>
-      <figcaption>Fig. 2 — Stress distribution under compression.</figcaption>
-    </figure>
 
     <h2>Results</h2>
     <p>
-      <!-- EDIT: what you found. Numbers are great here. -->
-      Summarize the key results, such as reaction forces, moments, and how
-      plate angle affected them.
-    </p>
-
-    <h2>What I Learned</h2>
-    <p>
-      <!-- EDIT: skills gained, challenges solved -->
-      One short paragraph on the challenges you worked through and the skills you built.
+      The analysis identified spring designs that reduced lateral loading and improved valve
+      performance.
+      <!-- EDIT: add any results you're allowed to share -->
     </p>
 
     <div class="next-project">
-      <a href="../index.html#work" class="back" style="margin:0">← All projects</a>
-      <a href="camera-mount.html" class="button">First Project <span class="arrow">→</span></a>
+      <a href="../index.html#work" class="back">← All projects</a>
+      <a href="transmission.html" class="button">Next Project <span class="arrow">→</span></a>
     </div>
   </main>
 

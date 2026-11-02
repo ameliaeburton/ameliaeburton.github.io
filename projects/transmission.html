@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a3550">
+  <title>Four-Speed Rover Transmission — Amelia Burton</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&family=Michroma&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- "../" means "go up one folder", because this page is inside /projects -->
+  <link rel="stylesheet" href="../style.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+
+  <nav class="nav clear">
+    <a href="../index.html" class="mark">A. Burton</a>
+    <ul>
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li class="hide-mobile"><a href="../resume.pdf" target="_blank">Résumé</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== FULL-SCREEN VIDEO ===== -->
+  <!-- muted + playsinline + autoplay are what let the video start by itself on iPhone -->
+  <header class="video-hero" style="background-image: url('../images/transmission/drive-blur.jpg')">
+    <video autoplay muted loop playsinline preload="auto" poster="../images/transmission/drive-poster.jpg">
+      <source src="../media/transmission-drive.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <div>
+        <p class="eyebrow">Project 03 — Drivetrain Design</p>
+        <h1 class="chrome">Four-Speed Rover Transmission</h1>
+      </div>
+      <div class="controls">
+        <button class="button" data-play type="button">Pause</button>
+        <button class="button" data-fullscreen type="button">Full Screen ⤢</button>
+        <a href="#details" class="button solid">Details ↓</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-page" id="details">
+    <a href="../index.html#work" class="back">← All projects</a>
+
+    <p class="lead">
+      I designed the complete four-speed transmission for a small rover, from the gears and
+      shafts to the supporting components, then built the drivetrain, tested it and refined
+      the design based on what the tests showed.
+      <!-- EDIT: add the course or context, and who you worked with -->
+    </p>
+
+    <dl class="facts">
+      <div><dt>Date</dt><dd>2026</dd></div>
+      <div><dt>My role</dt><dd>Complete transmission CAD, build &amp; testing</dd></div>
+      <div><dt>Gears</dt><dd>4 speeds</dd></div>
+      <div><dt>Built with</dt><dd>3D-printed gears, laser-cut chassis</dd></div>
+    </dl>
+
+    <h2>The Drivetrain</h2>
+    <figure class="figure">
+      <div class="frame contain"><img src="../images/transmission/chassis.jpg" alt="Rover chassis with the orange and yellow 3D-printed gears of the four-speed transmission inside a laser-cut wooden frame"></div>
+      <figcaption>The bare chassis, with the gear train inside the laser-cut frame.</figcaption>
+    </figure>
+    <p>
+      The gear train sits inside a laser-cut wooden chassis, with 3D-printed spur gears
+      running on steel shafts and bearings.
+      <!-- EDIT: explain how the four speeds work: how you shift, the ratio of each gear, and the motor -->
+    </p>
+
+    <h2>Testing</h2>
+    <dl class="facts">
+      <div><dt>Top speed</dt><dd>2 m/s</dd></div>
+      <div><dt>Ramp pull</dt><dd>3 kg load up a ramp</dd></div>
+      <div><dt>Drop test</dt><dd>Survived 5 kg</dd></div>
+    </dl>
+    <div class="split">
+      <figure class="clip" style="margin:0">
+        <video autoplay muted loop playsinline preload="metadata" poster="../images/transmission/drop-poster.jpg">
+          <source src="../media/transmission-drop-test.mp4" type="video/mp4">
+        </video>
+        <figcaption class="caption">Drop test, in slow motion.</figcaption>
+      </figure>
+      <div>
+        <h3 class="eyebrow" style="margin-bottom: var(--s0)">Drop test</h3>
+        <p>
+          For the drop test, a 5 kg weight was dropped through a guide tube onto the car.
+          The chassis and drivetrain came through intact.
+        </p>
+        <h3 class="eyebrow" style="margin: var(--s2) 0 var(--s0)">Iteration</h3>
+        <p>
+          Physical testing drove each round of changes to the design.
+          <!-- EDIT: add what you changed after testing -->
+        </p>
+      </div>
+    </div>
+
+    <h2>The Finished Car</h2>
+    <p>The rover's painted cardboard body, flames and all, fits over the chassis and lifts off for access.</p>
+    <div class="split">
+      <figure class="figure" style="margin:0">
+        <div class="frame"><img src="../images/transmission/side.jpg" alt="Finished rover with a blue painted cardboard body and flame decals"></div>
+      </figure>
+      <figure class="figure" style="margin:0">
+        <div class="frame"><img src="../images/transmission/rear.jpg" alt="Rear view of the rover body with the name Jordan painted on the back"></div>
+      </figure>
+    </div>
+
+    <div class="next-project">
+      <a href="../index.html#work" class="back">← All projects</a>
+      <a href="walking-dispenser.html" class="button">Next Project <span class="arrow">→</span></a>
+    </div>
+  </main>
+
+  <script src="../main.js"></script>
+</body>
+</html>

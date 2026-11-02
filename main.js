@@ -70,28 +70,19 @@
 requestAnimationFrame(() => document.documentElement.classList.add('loaded'));
 
 /* ---------------------------------------------------------
-   2. Depth gauge: bar bottom-right fills as you scroll
-   and shows a depth reading. Tap it to go back to the top.
+   2. Click or tap your name to make it flash
+   (it still flashes on its own every few seconds)
    --------------------------------------------------------- */
-const gauge = document.querySelector('.gauge');
-if (gauge) {
-  gauge.innerHTML = '<span class="bar"></span>';
-  const readout = document.createElement('span');
-  readout.className = 'depth';
-  gauge.appendChild(readout);
-  const MAX_DEPTH = 300;   // metres shown at the very bottom of the page
-  const update = () => {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-    gauge.style.setProperty('--p', p.toFixed(4));
-    readout.textContent = '−' + Math.round(p * MAX_DEPTH) + ' m';
-    gauge.classList.toggle('show', window.scrollY > window.innerHeight * 0.5);
-  };
-  update();
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
-  gauge.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-}
+document.querySelectorAll('.hero h1').forEach(name => {
+  name.addEventListener('click', () => {
+    name.classList.remove('flash');
+    void name.offsetWidth;            // restart the animation if clicked again quickly
+    name.classList.add('flash');
+  });
+  name.addEventListener('animationend', e => {
+    if (e.animationName === 'flash') name.classList.remove('flash');
+  });
+});
 
 /* ---------------------------------------------------------
    3. Fade sections in as you scroll
