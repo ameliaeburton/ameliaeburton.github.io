@@ -31,9 +31,9 @@
 
   <!-- ===== FULL-SCREEN VIDEO ===== -->
   <!-- muted + playsinline + autoplay are what let the video start by itself on iPhone -->
-  <header class="video-hero" style="background-image: url('../images/dispenser/video-blur.jpg')">
-    <video autoplay muted loop playsinline preload="auto" poster="../images/dispenser/video-poster.jpg">
-      <source src="../media/dispenser-walking.mp4" type="video/mp4">
+  <header class="video-hero" style="background-image: url('../images/dispenser/loop-blur.jpg')">
+    <video autoplay muted loop playsinline preload="auto" poster="../images/dispenser/loop-poster.jpg">
+      <source src="../media/dispenser-closeup-loop.mp4" type="video/mp4">
     </video>
     <div class="overlay">
       <div>
@@ -52,41 +52,105 @@
     <a href="../index.html#work" class="back">← All projects</a>
 
     <p class="lead">
-      <!-- EDIT: one-paragraph summary -->A robot that walks on linkage-driven legs, built with a clear acrylic frame and 3D-printed parts. [Add what it dispenses, the class or team, and the goal.]
+      BookDrop is a walking robot that carries a tray of books through a library and drops
+      each one off at its aisle, so librarians spend less time sorting returns. Two four-bar
+      legs walk it forward, and a Geneva wheel driving a Scotch yoke pushes out one book
+      every 2 meters.
     </p>
 
     <dl class="facts">
-      <div><dt>Context</dt><dd>[Class / club / personal]</dd></div>
-      <div><dt>Date</dt><dd>[Semester, year]</dd></div>
-      <div><dt>Tools</dt><dd>[CAD, 3D printing, laser cutting?]</dd></div>
-      <div><dt>Role</dt><dd>[Your role / team size]</dd></div>
+      <div><dt>Course</dt><dd>ME 370 · Mechanical Design I</dd></div>
+      <div><dt>Date</dt><dd>Fall 2025</dd></div>
+      <div><dt>Team</dt><dd>4 students</dd></div>
+      <div><dt>My role</dt><dd>CAD design &amp; dispensing mechanism</dd></div>
+      <div><dt>Result</dt><dd>98% dispensing accuracy</dd></div>
     </dl>
 
     <h2>The Problem</h2>
-    <p><!-- EDIT -->[What was it designed to do? List any requirements or competition rules.]</p>
+    <p>
+      Library staff at Grainger juggle the front desk and student questions while also sorting
+      returned books by aisle. We designed a robot for them: a book drop that carries the
+      physical load and delivers each book to the right aisle on its own. Our design theme was
+      colorful, friendly and creative, so it would feel at home in a busy library.
+    </p>
 
-    <figure class="clip">
-      <video controls muted loop playsinline preload="metadata" poster="../images/dispenser/closeup.jpg">
-        <source src="../media/dispenser-closeup.mp4" type="video/mp4">
-      </video>
-      <figcaption class="caption">Close-up of the walking mechanism.</figcaption>
+    <h2>How It Works</h2>
+    <figure class="figure">
+      <div class="frame contain white"><img src="../images/dispenser/cad-assembly.jpg" alt="Labeled CAD model of the robot showing the motor, battery, drive gear, Geneva wheel, leg assembly and pushing mechanism inside a clear housing"></div>
+      <figcaption>CAD model: motor, battery, drive gear, leg assembly, Geneva wheel and pushing mechanism.</figcaption>
     </figure>
+    <div class="cols">
+      <div>
+        <h3>Walking</h3>
+        <ul>
+          <li>Two legs, each a simple <b>four-bar linkage</b>, driven by one motor</li>
+          <li><b>Rear wheels</b> carry part of the weight for stability</li>
+          <li><b>Bevel gears</b> turn the drive 90° to fit everything in the housing</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Dispensing</h3>
+        <ul>
+          <li>A <b>Geneva wheel</b> turns continuous motor rotation into timed, intermittent steps</li>
+          <li>Each step drives a <b>Scotch yoke</b>, which slides a pusher to eject one book</li>
+          <li>Timed to drop one book every <b>2 meters</b> of travel</li>
+        </ul>
+      </div>
+    </div>
 
-    <h2>Walking Mechanism</h2>
-    <p><!-- EDIT -->[Explain the linkage: type (e.g. crank-rocker, Jansen, Klann), how one motor drives the legs, and how you chose the link lengths.]</p>
-
-    <h2>Dispensing</h2>
-    <p><!-- EDIT -->[How does the dispenser work, and what does it hold?]</p>
+    <h2>Gait Analysis</h2>
+    <p>
+      Before building, we modeled the leg linkage and ran a position, velocity and acceleration
+      (PVA) analysis of the foot to shape the gait, then sized the gearing for our target speed.
+    </p>
+    <div class="split">
+      <figure class="figure" style="margin:0">
+        <div class="frame contain white"><img src="../images/dispenser/linkage.jpg" alt="Planar linkage plot of the leg showing the links, nodes and the closed foot path"></div>
+        <figcaption>Leg linkage and the path traced by the foot.</figcaption>
+      </figure>
+      <figure class="figure" style="margin:0">
+        <div class="frame contain white"><img src="../images/dispenser/gait-phases.jpg" alt="Foot position over time with the contact and lift phases highlighted"></div>
+        <figcaption>Foot position over one step, showing contact and lift phases.</figcaption>
+      </figure>
+    </div>
+    <div class="triptych">
+      <figure><div class="frame contain"><img src="../images/dispenser/pva-position.jpg" alt="Foot position over time for two cycles"></div><p class="label">Position</p></figure>
+      <figure><div class="frame contain"><img src="../images/dispenser/pva-velocity.jpg" alt="Foot velocity over time for two cycles"></div><p class="label">Velocity</p></figure>
+      <figure><div class="frame contain"><img src="../images/dispenser/pva-acceleration.jpg" alt="Foot acceleration over time for two cycles"></div><p class="label">Acceleration</p></figure>
+    </div>
+    <dl class="facts">
+      <div><dt>Stride length</dt><dd>3 in (76.2 mm)</dd></div>
+      <div><dt>Crank speed needed</dt><dd>0.77 rad/s</dd></div>
+      <div><dt>Motor speed (9 V, loaded)</dt><dd>4 rad/s</dd></div>
+      <div><dt>Gear ratio</dt><dd>5.2 : 1</dd></div>
+      <div><dt>Predicted speed</dt><dd>1.73 m/min</dd></div>
+      <div><dt>β</dt><dd>0.28</dd></div>
+    </dl>
 
     <h2>Build</h2>
     <ul class="points">
-      <li>[Frame material and how it was made]</li>
-      <li>[3D-printed parts]</li>
-      <li>[Motor and electronics]</li>
+      <li>Laser-cut acrylic housing, so the mechanism stays visible</li>
+      <li>3D-printed legs, crank, gears, Geneva wheel and pusher</li>
+      <li>Eight batteries for about 9 V to the drive motor</li>
     </ul>
 
-    <h2>Results &amp; What I Learned</h2>
-    <p><!-- EDIT -->[How well did it walk and dispense? What would you change?]</p>
+    <figure class="clip">
+      <video controls muted loop playsinline preload="metadata" poster="../images/dispenser/video-poster.jpg">
+        <source src="../media/dispenser-walking.mp4" type="video/mp4">
+      </video>
+      <figcaption class="caption">BookDrop walking during testing.</figcaption>
+    </figure>
+
+    <h2>Results</h2>
+    <p>
+      We refined the mechanism through repeated testing until it dispensed reliably, reaching
+      98% dispensing accuracy.
+      <!-- EDIT: add measured walking speed vs. the 1.73 m/min prediction, or what you changed after testing -->
+    </p>
+
+    <p class="thanks">
+      Team: Nicole Canfield, Danny Shannon, Amelia Burton and Shay Khanchandani.
+    </p>
 
     <div class="next-project">
       <a href="../index.html#work" class="back">← All projects</a>
