@@ -5,7 +5,9 @@ Live site: https://ameliaeburton.github.io
 ## Files
 - `index.html`: the main page (opening screen, project overviews, about, contact)
 - `style.css`: all colors, fonts and layout
-- `projects/`: one page per project (`spring-fea.html`, `camera-mount.html`, `project-two.html`)
+- `projects/`: one page per project (`camera-mount.html`, `rover.html`, `walking-dispenser.html`, `spring-fea.html`)
+- `media/`: project videos (MP4, H.264, which plays on iPhone and in every browser)
+- `main.js`: shared scripts (scroll fade-in, video buttons, tabs, parts diagram)
 - `images/`: put your project pictures here
 - `resume.pdf`: add your résumé here with this exact name
 
@@ -17,3 +19,9 @@ Live site: https://ameliaeburton.github.io
 
 ## Adding a project
 Copy one `<article class="project"> ... </article>` block in `index.html`, then copy a page in `projects/` and rename it.
+
+## Adding a video
+1. Export or convert it to `.mp4` (iPhone `.mov` files often won't play in Chrome).
+2. Put it in `media/`.
+3. Copy the `<header class="video-hero">` block from `projects/rover.html` and change the `src`.
+   Keep `autoplay muted loop playsinline`: iPhones only autoplay muted videos.

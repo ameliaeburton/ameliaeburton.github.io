@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#07080a">
+  <title>Walking Dispenser — Amelia Burton</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&family=Michroma&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- "../" means "go up one folder", because this page is inside /projects -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <nav class="nav clear">
+    <a href="../index.html" class="mark">A. Burton</a>
+    <ul>
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li class="hide-mobile"><a href="../resume.pdf" target="_blank">Résumé</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== FULL-SCREEN VIDEO ===== -->
+  <!-- muted + playsinline + autoplay are what let the video start by itself on iPhone -->
+  <header class="video-hero" style="background-image: url('../images/dispenser/video-blur.jpg')">
+    <video autoplay muted loop playsinline preload="auto" poster="../images/dispenser/video-poster.jpg">
+      <source src="../media/dispenser-walking.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <div>
+        <p class="eyebrow">Project 03 — Mechanisms</p>
+        <h1 class="chrome">Walking Dispenser</h1>
+      </div>
+      <div class="controls">
+        <button class="button" data-play type="button">Pause</button>
+        <button class="button" data-fullscreen type="button">Full Screen ⤢</button>
+        <a href="#details" class="button solid">Details ↓</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-page" id="details">
+    <a href="../index.html#work" class="back">← All projects</a>
+
+    <p class="lead">
+      <!-- EDIT: one-paragraph summary -->A robot that walks on linkage-driven legs, built with a clear acrylic frame and 3D-printed parts. [Add what it dispenses, the class or team, and the goal.]
+    </p>
+
+    <dl class="facts">
+      <div><dt>Context</dt><dd>[Class / club / personal]</dd></div>
+      <div><dt>Date</dt><dd>[Semester, year]</dd></div>
+      <div><dt>Tools</dt><dd>[CAD, 3D printing, laser cutting?]</dd></div>
+      <div><dt>Role</dt><dd>[Your role / team size]</dd></div>
+    </dl>
+
+    <h2>The Problem</h2>
+    <p><!-- EDIT -->[What was it designed to do? List any requirements or competition rules.]</p>
+
+    <figure class="clip">
+      <video controls muted loop playsinline preload="metadata" poster="../images/dispenser/closeup.jpg">
+        <source src="../media/dispenser-closeup.mp4" type="video/mp4">
+      </video>
+      <figcaption class="caption">Close-up of the walking mechanism.</figcaption>
+    </figure>
+
+    <h2>Walking Mechanism</h2>
+    <p><!-- EDIT -->[Explain the linkage: type (e.g. crank-rocker, Jansen, Klann), how one motor drives the legs, and how you chose the link lengths.]</p>
+
+    <h2>Dispensing</h2>
+    <p><!-- EDIT -->[How does the dispenser work, and what does it hold?]</p>
+
+    <h2>Build</h2>
+    <ul class="points">
+      <li>[Frame material and how it was made]</li>
+      <li>[3D-printed parts]</li>
+      <li>[Motor and electronics]</li>
+    </ul>
+
+    <h2>Results &amp; What I Learned</h2>
+    <p><!-- EDIT -->[How well did it walk and dispense? What would you change?]</p>
+
+    <div class="next-project">
+      <a href="../index.html#work" class="back">← All projects</a>
+      <a href="spring-fea.html" class="button">Next Project <span class="arrow">→</span></a>
+    </div>
+  </main>
+
+  <script src="../main.js"></script>
+</body>
+</html>

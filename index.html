@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#07080a">
   <title>Amelia Burton — Mechanical Engineering Portfolio</title>
   <meta name="description" content="Engineering portfolio of Amelia Burton: simulation, design and instrumentation projects.">
 
   <!-- Fonts from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&family=Michroma&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -27,26 +28,27 @@
   </nav>
 
   <!-- ===== OPENING PAGE ===== -->
-  <header class="hero" id="top">
-    <p class="eyebrow">Mechanical Engineering &nbsp;·&nbsp; Portfolio</p>
-    <h1>Amelia<br><em>Burton</em></h1>
-    <p class="lede">
-      <!-- EDIT: one or two sentences about you -->
-      Mechanical engineering student interested in simulation, mechanical design
-      and instrumentation.
-    </p>
-
+  <div class="hero-wrap">
+    <header class="hero" id="top">
+      <p class="eyebrow">Mechanical Engineering &nbsp;·&nbsp; Portfolio</p>
+      <h1 class="chrome">Amelia<br>Burton</h1>
+      <p class="lede">
+        <!-- EDIT: one or two sentences about you -->
+        Mechanical engineering student at the University of Illinois Urbana-Champaign.
+        I design, simulate and build hardware, from CAD to the machine shop.
+      </p>
+    </header>
     <a href="#work" class="scroll-cue">
       <span class="stem"></span>
       Scroll to view projects
     </a>
-  </header>
+  </div>
 
   <!-- ===== PROJECTS ===== -->
   <main class="section" id="work">
     <div class="section-head">
       <h2>Selected Work</h2>
-      <span>03 Projects</span>
+      <span>04 Projects</span>
     </div>
 
     <!--
@@ -63,15 +65,13 @@
     <!-- PROJECT 01 -->
     <article class="project reveal">
       <a href="projects/camera-mount.html" class="project-image">
-        <img src="images/camera-mount/fit-check.jpg" alt="Machined camera mount base plate and electronics panels">
+        <img src="images/camera-mount/fit-check.jpg" alt="Machined camera mount base plate and electronics panels" loading="lazy">
       </a>
       <div>
         <p class="project-number">01 — Design &amp; Fabrication</p>
         <h3>Science Camera Mount for the Nickel Telescope</h3>
         <p>
-          At Lick Observatory, I designed in SolidWorks and machined by hand
-          the mount that holds a new cryogenic CCD camera and its shutter on
-          a 1-meter research telescope.
+          At Lick Observatory, I designed in SolidWorks and machined by hand the mount that holds a new cryogenic CCD camera and its shutter on a 1-meter research telescope.
         </p>
         <ul class="tags">
           <li>SolidWorks</li><li>Machining</li><li>Sheet Metal</li><li>Akamai 2024</li>
@@ -82,16 +82,52 @@
 
     <!-- PROJECT 02 -->
     <article class="project reveal">
+      <a href="projects/rover.html" class="project-image">
+        <span class="badge">Video</span>
+        <img src="images/rover/rover-photo.jpg" alt="3D-printed rover with black body and blue wheels on a running track" loading="lazy">
+      </a>
+      <div>
+        <p class="project-number">02 — Mechatronics</p>
+        <h3>Rover</h3>
+        <p>
+          <!-- EDIT -->A small rover with a 3D-printed body, custom wheels and a bevel-gear drive module, designed in CAD and built and tested outdoors.
+        </p>
+        <ul class="tags">
+          <li>CAD</li><li>3D Printing</li><li>Gears</li>
+        </ul>
+        <a href="projects/rover.html" class="button">View Project <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <!-- PROJECT 03 -->
+    <article class="project reveal">
+      <a href="projects/walking-dispenser.html" class="project-image">
+        <span class="badge">Video</span>
+        <img src="images/dispenser/closeup.jpg" alt="Walking dispenser robot with clear frame and green 3D-printed parts" loading="lazy">
+      </a>
+      <div>
+        <p class="project-number">03 — Mechanisms</p>
+        <h3>Walking Dispenser</h3>
+        <p>
+          <!-- EDIT -->A robot that walks on linkage-driven legs, built with a clear acrylic frame and 3D-printed parts.
+        </p>
+        <ul class="tags">
+          <li>Linkages</li><li>3D Printing</li><li>Prototyping</li>
+        </ul>
+        <a href="projects/walking-dispenser.html" class="button">View Project <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <!-- PROJECT 04 -->
+    <article class="project reveal">
       <a href="projects/spring-fea.html" class="project-image">
         <div class="placeholder">Image coming soon</div>
       </a>
       <div>
-        <p class="project-number">02 — Simulation</p>
+        <p class="project-number">04 — Simulation</p>
         <h3>Compression Spring Test Simulation</h3>
         <p>
-          A finite element model in Abaqus that recreates a spring tester,
-          studying the forces and moments in a compression spring loaded
-          between non-parallel friction plates.
+          A finite element model in Abaqus that recreates a spring tester, studying the forces and moments in a compression spring loaded between non-parallel friction plates.
         </p>
         <ul class="tags">
           <li>Abaqus</li><li>FEA</li><li>CAD</li>
@@ -100,24 +136,6 @@
       </div>
     </article>
 
-    <!-- PROJECT 03 -->
-    <article class="project reveal">
-      <a href="projects/project-two.html" class="project-image">
-        <div class="placeholder">Image coming soon</div>
-      </a>
-      <div>
-        <p class="project-number">03 — Category</p>
-        <h3>Project Title Three</h3>
-        <p>
-          Two or three sentences describing the problem, what you did and
-          what came out of it.
-        </p>
-        <ul class="tags">
-          <li>Tool</li><li>Skill</li><li>Method</li>
-        </ul>
-        <a href="projects/project-two.html" class="button">View Project <span class="arrow">→</span></a>
-      </div>
-    </article>
   </main>
 
   <!-- ===== ABOUT ===== -->
@@ -148,7 +166,7 @@
 
   <!-- ===== CONTACT / FOOTER ===== -->
   <footer class="footer" id="contact">
-    <h2>Let's talk — <a href="mailto:ameliaeburton2005@gmail.com">get in touch</a></h2>
+    <h2>Let's talk — <a class="chrome" href="mailto:ameliaeburton2005@gmail.com">get in touch</a></h2>
     <ul>
       <li><a href="mailto:ameliaeburton2005@gmail.com">Email</a></li>
       <li><a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a></li>
@@ -157,18 +175,6 @@
     <p class="copyright">© 2026 Amelia Burton</p>
   </footer>
 
-  <!-- Small script: fades projects in as you scroll -->
-  <script>
-    const items = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    items.forEach(item => observer.observe(item));
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>

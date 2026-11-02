@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#07080a">
   <title>Science Camera Mount for the Nickel Telescope — Amelia Burton</title>
   <meta name="description" content="Design and fabrication of a camera mount for the new CCD science camera on the Nickel 1-meter telescope at Lick Observatory.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&family=Michroma&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -27,7 +28,7 @@
     <a href="../index.html#work" class="back">← All projects</a>
 
     <p class="eyebrow">Project 01 — Design &amp; Fabrication</p>
-    <h1>A Camera Mount for the <em style="color:var(--accent)">Nickel Telescope</em></h1>
+    <h1>A Camera Mount for the <span class="chrome">Nickel Telescope</span></h1>
 
     <p class="lead">
       I designed and machined the mount that holds a new cryogenically cooled
@@ -82,7 +83,7 @@
 
     <!-- ===== ASSEMBLY / BOM ===== -->
     <h2>The Assembly</h2>
-    <p>Hover over a part in the list or a numbered balloon on the drawing to find it in the exploded view.</p>
+    <p>Hover over or tap a part in the list or a numbered balloon on the drawing to find it in the exploded view.</p>
 
     <div class="anatomy">
       <div class="diagram">
@@ -250,29 +251,10 @@
 
     <div class="next-project">
       <a href="../index.html#work" class="back" style="margin:0">← All projects</a>
-      <a href="spring-fea.html" class="button">Next Project <span class="arrow">→</span></a>
+      <a href="rover.html" class="button">Next Project <span class="arrow">→</span></a>
     </div>
   </main>
 
-  <script>
-    // Tabs: show one component at a time
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
-      });
-    });
-
-    // Balloons: highlight matching part in the drawing and the table
-    const parts = document.querySelectorAll('[data-part]');
-    parts.forEach(el => {
-      const name = el.dataset.part;
-      const same = document.querySelectorAll('[data-part="' + name + '"]');
-      el.addEventListener('mouseenter', () => same.forEach(s => s.classList.add('on')));
-      el.addEventListener('mouseleave', () => same.forEach(s => s.classList.remove('on')));
-    });
-  </script>
+  <script src="../main.js"></script>
 </body>
 </html>
