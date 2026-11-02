@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science Camera Mount for the Nickel Telescope — Amelia Burton</title>
+  <meta name="description" content="Design and fabrication of a camera mount for the new CCD science camera on the Nickel 1-meter telescope at Lick Observatory.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../index.html" class="mark">A. Burton</a>
+    <ul>
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li class="hide-mobile"><a href="../resume.pdf" target="_blank">Résumé</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="project-page wide">
+    <a href="../index.html#work" class="back">← All projects</a>
+
+    <p class="eyebrow">Project 01 — Design &amp; Fabrication</p>
+    <h1>A Camera Mount for the <em style="color:var(--accent)">Nickel Telescope</em></h1>
+
+    <p class="lead">
+      I designed and machined the mount that holds a new cryogenically cooled
+      science camera and its shutter on the 1-meter Nickel telescope at Lick
+      Observatory. The work took the mount from SolidWorks models through
+      machine-shop fabrication to a test fit on the telescope.
+    </p>
+
+    <dl class="facts">
+      <div><dt>Where</dt><dd>UC Observatories / Lick Observatory</dd></div>
+      <div><dt>Program</dt><dd>Akamai Internship, 2024</dd></div>
+      <div><dt>Role</dt><dd>Design, drafting &amp; machining</dd></div>
+      <div><dt>Tools</dt><dd>SolidWorks, lathe, mills, press brake, welder</dd></div>
+    </dl>
+
+    <figure class="bleed">
+      <img src="../images/camera-mount/telescope.jpg" alt="The Nickel 1-meter telescope inside its dome at Lick Observatory">
+      <figcaption>The Nickel 1-meter Cassegrain telescope, Lick Observatory. The science camera mounts at the bottom of the telescope.</figcaption>
+    </figure>
+
+    <!-- ===== CONTEXT ===== -->
+    <h2>Background</h2>
+    <div class="split">
+      <div>
+        <p>
+          Nickel is used by astronomers and students to screen targets
+          before follow-up on larger telescopes, which saves valuable time
+          on those bigger instruments.
+        </p>
+        <p>
+          Its existing CCD camera had become unreliable and high-maintenance,
+          since it needed liquid-nitrogen cooling. The observatory replaced it
+          with an Oxford Instruments iKon-L 936, which reaches cryogenic
+          temperatures with water cooling. That upgrade was funded by the Gordon and
+          Betty Moore Foundation.
+        </p>
+        <p>
+          The new camera arrived without a shutter, so the mount had to hold
+          the camera <em>and</em> a separate shutter, then attach both to the
+          telescope's filter wheel housing.
+        </p>
+      </div>
+      <div>
+        <ol class="reqs">
+          <li>Technicians can reach the camera and shutter easily for routine maintenance.</li>
+          <li>Fewer electronics on the TUB (telescope utilization bin), so installation and removal are easier.</li>
+        </ol>
+      </div>
+    </div>
+
+    <p class="goal">Design and fabricate a camera mount for the incoming <em>science camera</em> on the Nickel Telescope.</p>
+
+    <!-- ===== ASSEMBLY / BOM ===== -->
+    <h2>The Assembly</h2>
+    <p>Hover over a part in the list or a numbered balloon on the drawing to find it in the exploded view.</p>
+
+    <div class="anatomy">
+      <div class="diagram">
+        <img src="../images/camera-mount/assembly-cad.jpg" alt="Exploded SolidWorks view of the camera mount assembly">
+        <!-- Balloons: left/top are percentages across/down the image -->
+        <span class="balloon" data-part="baffle"   style="left:79%; top:5.5%">5</span>
+        <span class="balloon" data-part="base"     style="left:12%; top:11.5%">1</span>
+        <span class="balloon" data-part="spacer"   style="left:30%; top:18%">2</span>
+        <span class="balloon buy" data-part="shutter" style="left:64%; top:26%">A</span>
+        <span class="balloon" data-part="camplate" style="left:31%; top:32%">3</span>
+        <span class="balloon buy" data-part="camera"  style="left:65%; top:41%">B</span>
+        <span class="balloon" data-part="bracket"  style="left:23%; top:47%">7</span>
+        <span class="balloon" data-part="panel"    style="left:73%; top:70%">6</span>
+        <span class="balloon" data-part="brace"    style="left:22%; top:92%">8</span>
+      </div>
+
+      <table class="bom">
+        <thead><tr><th>#</th><th>Part</th><th>Qty</th><th>Material</th></tr></thead>
+        <tbody>
+          <tr data-part="base"><td>1</td><td>Base Plate</td><td>1</td><td>Aluminum</td></tr>
+          <tr data-part="spacer"><td>2</td><td>Spacer Ring</td><td>1</td><td>Aluminum</td></tr>
+          <tr data-part="camplate"><td>3</td><td>Camera (Main) Plate</td><td>1</td><td>Aluminum</td></tr>
+          <tr data-part="insul"><td>4</td><td>Wire Access Insulation</td><td>1</td><td>Acetal</td></tr>
+          <tr data-part="baffle"><td>5</td><td>Light Baffle</td><td>1</td><td>Aluminum</td></tr>
+          <tr data-part="panel"><td>6</td><td>Electronics Panel</td><td>2</td><td>Aluminum</td></tr>
+          <tr data-part="bracket"><td>7</td><td>Panel Bracket</td><td>2</td><td>Aluminum</td></tr>
+          <tr data-part="brace"><td>8</td><td>Panel Brace</td><td>1</td><td>Aluminum</td></tr>
+          <tr data-part="shutter" class="purchased"><td>A</td><td>Shutter</td><td>1</td><td>Purchased</td></tr>
+          <tr data-part="camera" class="purchased"><td>B</td><td>iKon-L 936 CCD Camera</td><td>1</td><td>Purchased</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===== COMPONENTS ===== -->
+    <h2>Key Components</h2>
+    <p>Each part went from a CAD model to a drawing to a finished part on the shop floor.</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="t-base" role="tab">01 Base Plate</button>
+      <button class="tab" data-tab="t-cam" role="tab">03 Camera Plate</button>
+      <button class="tab" data-tab="t-panel" role="tab">06 Electronics Panel</button>
+    </div>
+
+    <!-- Base plate -->
+    <section class="panel active" id="t-base">
+      <div class="triptych">
+        <figure><div class="frame contain"><img src="../images/camera-mount/base-plate-cad.jpg" alt="Base plate CAD model"></div><p class="label">Model</p></figure>
+        <figure><div class="frame contain"><img src="../images/camera-mount/base-plate-drawing.jpg" alt="Base plate engineering drawing"></div><p class="label">Drawing</p></figure>
+        <figure><div class="frame"><img src="../images/camera-mount/base-plate.jpg" alt="Machined aluminum base plate with spacer ring"></div><p class="label">Machined</p></figure>
+      </div>
+      <div class="cols">
+        <div>
+          <h3>Design features</h3>
+          <ul>
+            <li>Mounts to the filter wheel housing on the telescope</li>
+            <li>Locating lip for alignment, with a press-fit spacer ring</li>
+            <li>Mounting holes for every other component</li>
+            <li>Nitrogen hose adapter to prevent condensation on the camera window</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Fabrication · ⅜″ aluminum stock</h3>
+          <ul>
+            <li><b>Vertical mill</b> — outer edge, mounting holes, nitrogen hose hole</li>
+            <li><b>CNC mill</b> — center bore</li>
+            <li><b>Lathe</b> — locating lip</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Camera plate -->
+    <section class="panel" id="t-cam">
+      <div class="triptych">
+        <figure><div class="frame contain"><img src="../images/camera-mount/camera-plate-cad.jpg" alt="Camera plate CAD model"></div><p class="label">Model</p></figure>
+        <figure><div class="frame contain"><img src="../images/camera-mount/camera-plate-drawing.jpg" alt="Camera plate engineering drawing"></div><p class="label">Drawing</p></figure>
+        <figure><div class="frame"><img src="../images/camera-mount/camera-plate.jpg" alt="Machined camera plate with shutter installed"></div><p class="label">Machined, with shutter</p></figure>
+      </div>
+      <div class="cols">
+        <div>
+          <h3>Design features</h3>
+          <ul>
+            <li>Holds both camera and shutter: the shutter screws in from the top and the camera bolts in from the bottom</li>
+            <li>Shutter wiring access point with BNC connector</li>
+            <li>Light-tight and electrically isolated</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Fabrication · ⅜″ aluminum stock</h3>
+          <ul>
+            <li><b>Lathe</b> — outer and inner edges, threaded inner edge, locating lip</li>
+            <li><b>Vertical mill</b> — bolt pattern to base plate, camera mounting holes, wiring access point</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Electronics panel -->
+    <section class="panel" id="t-panel">
+      <div class="triptych">
+        <figure><div class="frame contain"><img src="../images/camera-mount/panel-cad.jpg" alt="Electronics panel CAD model"></div><p class="label">Model</p></figure>
+        <figure><div class="frame"><img src="../images/camera-mount/panel-bend.jpg" alt="Bent sheet-metal electronics panel"></div><p class="label">Formed on press brake</p></figure>
+        <figure><div class="frame"><img src="../images/camera-mount/panel.jpg" alt="Welded electronics panel assembly"></div><p class="label">Welded assembly</p></figure>
+      </div>
+      <div class="cols">
+        <div>
+          <h3>Design features</h3>
+          <ul>
+            <li>Moves electronics off the telescope and onto the mount</li>
+            <li>Sized around standard electronics, with small computers (NUCs) fitting on the sides</li>
+            <li>Open on two sides for direct access to the camera</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Fabrication · ⅜″ stock &amp; ⅛″ sheet</h3>
+          <ul>
+            <li><b>Hydraulic press brake</b> — bent the panels</li>
+            <li><b>Vertical mill</b> — panel brackets</li>
+            <li><b>Welder</b> — brackets joined to panels</li>
+            <li><b>CNC mill</b> — panel brace</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <h2>Process</h2>
+    <div class="process">
+      <div class="step">
+        <span class="n">STAGE 01</span>
+        <h3>Design &amp; iterate</h3>
+        <p>Modeled every part in SolidWorks and revised the design with feedback from observatory engineers and machinists.</p>
+      </div>
+      <div class="step">
+        <span class="n">STAGE 02</span>
+        <h3>Fabricate</h3>
+        <p>Machined the parts in the UC Observatories shops on a lathe, vertical mill, CNC mill and press brake, and welded the panel assembly.</p>
+      </div>
+      <div class="step">
+        <span class="n">STAGE 03</span>
+        <h3>Test fit</h3>
+        <p>Assembled the mount and test fit it on the Nickel telescope.</p>
+        <!-- EDIT: say what happened during the test fit -->
+      </div>
+    </div>
+
+    <figure class="bleed">
+      <img src="../images/camera-mount/fit-check.jpg" alt="Base plate assembled with the electronics panels in the machine shop">
+      <figcaption>Base plate and electronics panels assembled in the shop.</figcaption>
+    </figure>
+
+    <h2>Outcome &amp; What I Learned</h2>
+    <p>
+      <!-- EDIT: write 2–4 sentences. Ideas: Is the mount on the telescope now?
+           What changed between design iterations? What did you learn from the machinists?
+           What would you do differently? -->
+      [Describe the result: did the mount fit, and is it in use? Then describe one or two lessons
+      from designing parts that you also had to machine yourself.]
+    </p>
+
+    <p class="thanks">
+      Mentors: Pavl Zachary and Kyle Westfall. With thanks to UCO / Lick Observatory, the
+      Institute for Scientist &amp; Engineer Educators, and the Akamai Internship Program.
+    </p>
+
+    <div class="next-project">
+      <a href="../index.html#work" class="back" style="margin:0">← All projects</a>
+      <a href="spring-fea.html" class="button">Next Project <span class="arrow">→</span></a>
+    </div>
+  </main>
+
+  <script>
+    // Tabs: show one component at a time
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Balloons: highlight matching part in the drawing and the table
+    const parts = document.querySelectorAll('[data-part]');
+    parts.forEach(el => {
+      const name = el.dataset.part;
+      const same = document.querySelectorAll('[data-part="' + name + '"]');
+      el.addEventListener('mouseenter', () => same.forEach(s => s.classList.add('on')));
+      el.addEventListener('mouseleave', () => same.forEach(s => s.classList.remove('on')));
+    });
+  </script>
+</body>
+</html>

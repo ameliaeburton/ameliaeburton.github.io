@@ -5,7 +5,7 @@ Live site: https://ameliaeburton.github.io
 ## Files
 - `index.html`: the main page (opening screen, project overviews, about, contact)
 - `style.css`: all colors, fonts and layout
-- `projects/`: one page per project (`spring-fea.html`, `project-two.html`, `project-three.html`)
+- `projects/`: one page per project (`spring-fea.html`, `camera-mount.html`, `project-two.html`)
 - `images/`: put your project pictures here
 - `resume.pdf`: add your résumé here with this exact name
 
