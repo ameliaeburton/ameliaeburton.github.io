@@ -515,3 +515,41 @@ img, video { display: block; max-width: 100%; }
   .nav .mark { font-size: .66rem; }
     .nav ul { gap: var(--s0); }
 }
+
+/* =========================================================
+   Beyond Engineering: hobby cards and photo galleries
+   ========================================================= */
+.life-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s2); margin: var(--s2) 0; }
+.life-card {
+  display: flex; flex-direction: column; overflow: hidden; border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.01));
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), var(--depth);
+  transition: transform .6s var(--ease);
+}
+.life-card:hover { transform: translateY(-6px); }
+.life-card .cover { aspect-ratio: 4 / 5; overflow: hidden; }
+.life-card .cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+.life-card:hover .cover img { transform: scale(1.05); }
+.life-card .body { padding: var(--s2); display: flex; flex-direction: column; gap: var(--s0); flex: 1; }
+.life-card .body h3 { font-family: var(--head); font-weight: 600; font-size: 1.5rem; display: inline-block; }
+.project-page .life-card .body p { font-size: .95rem; margin: 0 0 var(--s1); flex: 1; }
+.life-card .button { align-self: flex-start; }
+
+.gallery { columns: 2; column-gap: var(--s1); margin: var(--s3) 0; }
+.gallery figure { break-inside: avoid; margin: 0 0 var(--s1); }
+.gallery img, .gallery video { width: 100%; border-radius: 6px; box-shadow: var(--depth); background: #000; }
+.gallery figcaption { font-family: var(--mono); font-size: .66rem; letter-spacing: .06em; color: var(--muted); margin-top: var(--s-1); }
+
+.life-hero { position: relative; height: 78vh; height: 78svh; overflow: hidden; }
+.life-hero img { width: 100%; height: 100%; object-fit: cover; }
+.life-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--mid) 0%, rgba(6,31,51,.45) 35%, transparent 65%), linear-gradient(to bottom, rgba(0,0,0,.4), transparent 25%); }
+.life-hero .overlay { position: absolute; z-index: 2; left: var(--pad); right: var(--pad); bottom: var(--s3); }
+.life-hero h1 { font-family: var(--head); font-weight: 600; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1; letter-spacing: -.02em; }
+.life-hero + .project-page { padding-top: var(--s4); }
+
+@media (max-width: 800px) {
+  .life-cards { grid-template-columns: 1fr; }
+  .life-card .cover { aspect-ratio: 16 / 10; }
+  .gallery { columns: 1; }
+}
